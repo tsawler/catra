@@ -1,4 +1,4 @@
-<div class="navbar navbar-default navbar-static-top yamm sticky" role="navigation">
+<div class="navbar navbar-default navbar-static-top sticky" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -7,7 +7,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/"><!-- <img src="img/logo.png" alt=""> --></a>
+            <a class="navbar-brand" href="/">
+                <img src="/img/logo-en.png" alt="Logo" style="min-width: 200px; margin-top: -15px;">
+            </a>
         </div>
 
         <div class="navbar-collapse collapse">

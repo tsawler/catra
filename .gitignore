@@ -6,3 +6,4 @@ Homestead.json
 .idea
 composer.lock
 public/vendor/laravel-filemanager
+public/news-images/*

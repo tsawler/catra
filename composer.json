@@ -17,7 +17,7 @@
         "intervention/image": "2.*",
         "tsawler/laravel-filemanager": "0.5.*",
         "jenssegers/date": "~3.0",
-        "tsawler/vcms5": "dev-master"
+        "tsawler/vcms5": "1.0.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

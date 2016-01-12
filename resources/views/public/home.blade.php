@@ -89,65 +89,81 @@
         <h4>{!! $page_title or ' ' !!}</h4>
     @endif
     @include('vcms5::public.partials.edit-region')
+
+    <hr>
+
+    <h1 class="red">News</h1>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="thumbnail">
+                <img src="/news-images/soccer-turf.jpg" class="img img-responive" alt="Soccer turf">
+                <div class="caption">
+                    <h3 class="text-center">CATRA STATEMENT ON RECYCLED RUBBER IN SYNTHETIC TURF</h3>
+                    <p class="text-center">
+                        <small>January 11, 2016</small>
+                    </p>
+                    <p class="text-center"><a href="#" class="btn btn-primary" role="button">Read more...</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="thumbnail">
+                <img src="/news-images/stats.jpg" class="img img-responive" alt="Statistics">
+                <div class="caption">
+                    <h3 class="text-center">OUR 2014 PROGRAM STATISTICS ARE NOW AVAILABLE</h3>
+                    <p class="text-center">
+                        <small>December 17, 2015</small>
+                    </p>
+                    <p class="text-center"><a href="#" class="btn btn-primary" role="button">Read more...</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="thumbnail">
+                <img src="/news-images/trac.png" class="img img-responive" alt="TRAC">
+                <div class="caption">
+                    <h3 class="text-center">RUBBER RECYCLING SYPOSIUM<br>2016</h3>
+                    <p class="text-center">
+                        <small>December 17, 2015</small>
+                    </p>
+                    <p class="text-center"><a href="#" class="btn btn-primary" role="button">Read more...</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="divide60"></div>
+<div class="divide20"></div>
 
 <footer id="footer">
     <div class="container">
-
         <div class="row">
-            <div class="col-md-3 col-sm-6 margin30">
-                <div class="footer-col">
-                    <h3>{!! Lang::get('vcms5::vcms5.about_us') !!}</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam, adipiscing condimentum tristique vel, eleifend sed turpis. Pellentesque cursus arcu id magna euismod in elementum purus molestie.
+            <div class="col-md-4">
+                <img src="/img/logo-en.png" class="img img-responsive">
+            </div>
+            <div class="col-md-8">
+                <div class="alert alert-info fade in margin-bottom-40 fact">
+                <p>
+                        <i class="fa fa-info-circle"></i> <strong>Did You Know:</strong> CATRA changes host provinces every 2 years. Ontario is the current host for 2015.
+                        <br><br>
+                        <a class="btn btn-info" href="http://catraonline.ca/en/catra-operations/">Learn More</a>
                     </p>
-                    <ul class="list-inline social-1">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                    </ul>
                 </div>
-            </div><!--footer col-->
-            <div class="col-md-3 col-sm-6 margin30">
-                <div class="footer-col">
-                    <h3>{!! Lang::get('vcms5::vcms5.contact_us') !!}</h3>
-
-                    <ul class="list-unstyled contact">
-                        <li><p><strong><i class="fa fa-fw fa-map-marker"></i> {!! Lang::get('vcms5::vcms5.address') !!}:</strong> Some Street</p></li>
-                        <li><p><strong><i class="fa fa-fw fa-envelope"></i> {!! Lang::get('vcms5::vcms5.email') !!}:</strong> <a href="#">info@sample.com</a></p></li>
-                        <li> <p><strong><i class="fa fa-fw fa-phone"></i> {!! Lang::get('vcms5::vcms5.phone') !!}:</strong> +1 506 555-1212</p></li>
-                        <li> <p><strong><i class="fa fa-fw fa-print"></i> {!! Lang::get('vcms5::vcms5.fax') !!}</strong> 1 800 555 1212</p></li>
-                    </ul>
-                </div>
-            </div><!--footer col-->
-            <div class="col-md-3 col-sm-6 margin30">
-                <div class="footer-col">
-
-                </div>
-            </div><!--footer col-->
-            <div class="col-md-3 col-sm-6 margin30">
-                <div class="footer-col">
-                    <h3>{!! Lang::get('vcms5::vcms5.newsletter') !!}</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam,
-                    </p>
-                    <form role="form" class="subscribe-form">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Enter email to subscribe">
-                                    <span class="input-group-btn">
-                                        <button class="btn  btn-theme-dark btn-lg" type="submit">Ok</button>
-                                    </span>
-                        </div>
-                    </form>
-                </div>
-            </div><!--footer col-->
-
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p><small>Copyright &copy; {!! date("Y") !!} CATRA. All rights reserved.</small></p>
+            </div>
         </div>
     </div>
 </footer>
+
+<div class="divide20"></div>
 
 <script src="/vendor/vcms5/public-assets/js/jquery.min.js"></script>
 <script src="/vendor/vcms5/public-assets/bootstrap/js/bootstrap.min.js"></script>
@@ -186,11 +202,14 @@
                     fill: "#c22426"
                 }
             },
-            onRegionClick: function(element, code, region)
-            {
+            onRegionClick: function (element, code, region) {
                 window.location = '/en/programs/provincial-data/?' + code.toUpperCase();
             }
         });
+    });
+
+    $(window).load(function () {
+        $(".sticky").sticky({topSpacing: 0});
     });
 
 </script>
