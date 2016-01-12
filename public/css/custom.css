@@ -78,6 +78,19 @@ h3 {
     color: #c22327;
 }
 
-a:link, a:visited, a:active {
+.green {
+    color: #5d9c1e;
+}
+
+.standout {
+    font-size: 1.5em;
+    line-height: 1.5em;
+}
+
+.pushdown {
+    margin-top: 2.5em;
+}
+
+a.redlink:link, a.redlink:visited, a.redlink:active {
     color: red;
 }

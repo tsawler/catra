@@ -163,6 +163,7 @@
                                 <li><a href="#!" class="menu-item" onclick="makePageEditable(this)">Edit page</a></li>
                                 <li><a href="/admin/page/page?id=0">Add Page</a></li>
                                 <li><a href="#!" onclick="addMenuItem()">Add Menu Item</a></li>
+                                <li><a href="/flushcache"">Flush Cache</a></li>
                                 <li><a href="/admin/logout">Logout</a></li>
                             </ul>
                         </li>

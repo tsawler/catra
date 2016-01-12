@@ -6,24 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CATRA - Canadian Association of Tire Recycling Agencies</title>
 
-    <!-- Bootstrap -->
     <link href="/vendor/vcms5/public-assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- css -->
     <link href="/vendor/vcms5/public-assets/css/style.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="/vendor/vcms5/public-assets/css/style-red.css" rel="stylesheet" type="text/css" media="screen">
     <link href="/vendor/vcms5/public-assets/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
-    <!-- flex slider css -->
-    <link href="/vendor/vcms5/public-assets/css/flexslider.css" rel="stylesheet" type="text/css" media="screen">
-    <!-- animated css  -->
-    <link href="/vendor/vcms5/css/animate.css" rel="stylesheet" type="text/css" media="screen">
-    <!--google fonts-->
     <link href='//fonts.googleapis.com/css?family=Raleway:400,500,600,700,800' rel='stylesheet' type='text/css'>
-    <!--owl carousel css-->
-    <link href="/vendor/vcms5/public-assets/css/owl.carousel.css" rel="stylesheet" type="text/css" media="screen">
-    <link href="/vendor/vcms5/public-assets/css/owl.theme.css" rel="stylesheet" type="text/css" media="screen">
-    <!--mega menu -->
-    <link href="/vendor/vcms5/public-assets/css/yamm.css" rel="stylesheet" type="text/css">
-    <!--popups css-->
-    <link href="/vendor/vcms5/public-assets/css/magnific-popup.css" rel="stylesheet" type="text/css">
     <!-- custom css -->
     @include("vcms5::public.partials.vcms-css")
     <link href="/css/custom.css" rel="stylesheet" type="text/css">
@@ -89,35 +76,18 @@
     </div>
 </div>
 
-<div class="divide80"></div>
+<div class="divide40"></div>
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <h3 class="red">MISSION &amp; VISION</h3>
-            <p>
-                <em>The membership of CATRA (Canadian Association of Tire Recycling Agencies) is made up of tire recycling agencies in the provinces and territories of Canada. The association’s mission is to continually enhance the effectiveness of scrap tire diversion and recycling across Canada thought the sharing of information, expertise and resources. CATRA's vision is to be the reference authority for scrap tire management in Canada.</em>
-            </p>
-            <p><a href="#">Learn More About Catra</a></p>
-        </div>
-        <div class="col-md-6">
-            <h3 class="red">RECYCLING IN YOUR REGION</h3>
-            <div id="map"></div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-6">
-
-        </div>
-        <div class="col-md-6">
-
-        </div>
-    </div>
-</div>
-
-<div class="container">
-    @include('vcms5::public.partials.edit-title')
+    @if ((Auth::user()) && (Auth::user()->hasRole('pages')))
+        <h4>
+            <article style='width: 100%; display: none'>
+                <span id="editablecontenttitle" class="editablecontenttitle">{!! $page_title or ' ' !!}</span>
+            </article>
+        </h4>
+    @else
+        <h4>{!! $page_title or ' ' !!}</h4>
+    @endif
     @include('vcms5::public.partials.edit-region')
 </div>
 
@@ -177,40 +147,11 @@
 
         </div>
     </div>
-</footer><!--default footer end here-->
-<!--scripts and plugins -->
-<!--must need plugin jquery-->
+</footer>
+
 <script src="/vendor/vcms5/public-assets/js/jquery.min.js"></script>
-<!--bootstrap js plugin-->
-<script src="/vendor/vcms5/public-assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<!--easing plugin for smooth scroll-->
-<!--
-<script src="/vendor/vcms5/public-assets/js/jquery.easing.1.3.min.js" type="text/javascript"></script>
--->
-<!--sticky header-->
-<script type="text/javascript" src="/vendor/vcms5/public-assets/js/jquery.sticky.js"></script>
-<!--flex slider plugin-->
-<script src="/vendor/vcms5/public-assets/js/jquery.flexslider-min.js" type="text/javascript"></script>
-<!--parallax background plugin-->
-<script src="/vendor/vcms5/public-assets/js/jquery.stellar.min.js" type="text/javascript"></script>
-<!--very easy to use portfolio filter plugin -->
-<script src="/vendor/vcms5/public-assets/js/jquery.mixitup.min.js" type="text/javascript"></script>
-<!-- waypoint -->
-<!--
-<script src="//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
--->
-<!--on scroll animation-->
-<script src="/vendor/vcms5/public-assets/js/wow.min.js" type="text/javascript"></script>
-<!--owl carousel slider-->
-<script src="/vendor/vcms5/public-assets/js/owl.carousel.min.js" type="text/javascript"></script>
-<!--popup js-->
-<script src="/vendor/vcms5/public-assets/js/jquery.magnific-popup.min.js" type="text/javascript"></script>
-<!--you tube player-->
-<!-- <script src="/vendor/vcms5/public-assets/js/jquery.mb.YTPlayer.min.js" type="text/javascript"></script> -->
-<!--text rotator-->
-<script src="/vendor/vcms5/public-assets/js/jquery.simple-text-rotator.js" type="text/javascript"></script>
-<!--customizable plugin edit according to your needs-->
-<script src="/vendor/vcms5/public-assets/js/custom.js" type="text/javascript"></script>
+<script src="/vendor/vcms5/public-assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="/vendor/vcms5/public-assets/js/jquery.sticky.js"></script>
 <script src="/js/jquery-jvectormap-1.2.2.min.js"></script>
 <script src="/js/jquery.vmap.canada.js"></script>
 
