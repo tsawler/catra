@@ -68,7 +68,7 @@ class CatraPageController extends VcmsBaseController {
             }
         }
 
-        return View::make('vcms5::public.home')
+        return View::make('public.home')
             ->with('page_title', $page_title)
             ->with('page_content', $page_content)
             ->with('meta', $meta)
@@ -180,7 +180,7 @@ class CatraPageController extends VcmsBaseController {
             }
         }
 
-        return View::make('vcms5::public.inside')
+        return View::make('public.inside')
             ->with('page_title', $page_title)
             ->with('page_content', $page_content)
             ->with('meta', $meta)
