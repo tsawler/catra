@@ -75,13 +75,13 @@
             </div>
         </div>
         <div class="item">
-            <img src="http://placehold.it/2000x550/999999/cccccc" alt="Slide2">
+            <img src="/img/slider/slide-2.jpg" alt="Slide2">
             <div class="container">
 
             </div>
         </div>
         <div class="item">
-            <img src="http://placehold.it/2000x550/dddddd/333333" alt="Slide3">
+            <img src="/img/slider/slide-3.jpg" alt="Slide3">
             <div class="container">
 
             </div>

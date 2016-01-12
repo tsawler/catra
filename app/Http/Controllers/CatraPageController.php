@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-use App\FdiPage;
+use App\CatraPage;
 use App\FileUploader;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
@@ -162,7 +162,7 @@ class CatraPageController extends VcmsBaseController {
         if ((Cache::has('page_' . $slug . '_' . App::getLocale())) && (getenv('APP_DEBUG') == false)) {
             $results = Cache::get('page_' . $slug . '_' . App::getLocale());
         } else {
-            $results = FdiPage::where('slug', '=', $slug)->get();
+            $results = CatraPage::where('slug', '=', $slug)->get();
             Cache::forever('page_' . $slug . '_' . App::getLocale(), $results);
         }
 
@@ -180,7 +180,7 @@ class CatraPageController extends VcmsBaseController {
             }
         }
 
-        return View::make('public.inside')
+        return View::make('vcms5::public.inside')
             ->with('page_title', $page_title)
             ->with('page_content', $page_content)
             ->with('meta', $meta)
@@ -216,9 +216,9 @@ class CatraPageController extends VcmsBaseController {
     {
         $page_id = Input::get('id');
         if ($page_id > 0) {
-            $page = FdiPage::find($page_id);
+            $page = CatraPage::find($page_id);
         } else {
-            $page = new FdiPage;
+            $page = new CatraPage;
         }
 
         return View::make('vcms5::admin.pages-edit-page')
@@ -237,7 +237,7 @@ class CatraPageController extends VcmsBaseController {
         $page_id = Input::get('page_id');
 
         if ($page_id > 0) {
-            $page = FdiPage::find($page_id);
+            $page = CatraPage::find($page_id);
         } else {
             $page = new Page;
         }
