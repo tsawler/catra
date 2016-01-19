@@ -18,6 +18,8 @@ Route::get('/test', function(){
 // gallery
 Route::get('/gallery', 'GalleryController@getAllItems');
 Route::get('/province', 'ProvincesController@getProvince');
+Route::get('/contact', 'ContactController@getContact');
+Route::post('/contact', 'ContactController@postContact');
 Route::get('/national-data', 'CatraPageController@showProgramPage');
 Route::get('/provincial-data', 'CatraPageController@showProvincialData');
 

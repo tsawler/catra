@@ -30,7 +30,8 @@
             @endif
 
             @if(Request::segment(1) == "epr-extended-producer-responsibility")
-                <li class="here first overview"><a href="/epr-extended-producer-responsibility">EPR (Extended Producer Responsibility)</a></li>
+                <li class="here first overview"><a href="/epr-extended-producer-responsibility">EPR (Extended Producer
+                        Responsibility)</a></li>
             @else
                 <li><a href="/epr-extended-producer-responsibility">EPR (Extended Producer Responsibility)</a></li>
             @endif
@@ -51,18 +52,31 @@
             @endif
 
             @if(Request::segment(1) == "tire-businesses")
-                <li class="here first overview"><a href="/provincial-data">Tire Businesses</a></li>
+                <li class="here first overview"><a href="/tire-businesses">Tire Businesses</a></li>
             @else
-                <li><a href="/provincial-data">Tire Businesses</a></li>
+                <li><a href="/tire-businesses">Tire Businesses</a></li>
             @endif
-        </ul>
-    @endif
+            </ul>
+        @elseif($page_category_id == 3)
+            <ul id="children">
+                @if(Request::segment(1) == "research")
+                    <li class="here first overview"><a href="/research">Research</a></li>
+                @else
+                    <li><a href="/research">Research</a></li>
+                @endif
 
-    @yield('content')
+                @if(Request::segment(1) == "publications")
+                    <li class="here first overview"><a href="/publications">Publications</a></li>
+                @else
+                    <li><a href="/publications">Publications</a></li>
+                @endif
+            </ul>
+        @endif
+
+        @yield('content')
 </div>
 
 <div class="divide60"></div>
-
 
 
 @include('public.partials.bottom-of-page')
