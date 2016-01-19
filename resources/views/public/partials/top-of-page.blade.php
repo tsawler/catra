@@ -6,92 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $page_title or '' }}</title>
 
-    <!-- Bootstrap -->
     <link href="/vendor/vcms5/public-assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- css -->
     <link href="/vendor/vcms5/public-assets/css/style.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="/vendor/vcms5/public-assets/css/style-red.css" rel="stylesheet" type="text/css" media="screen">
     <link href="/vendor/vcms5/public-assets/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
-    <!-- flex slider css -->
-    <link href="/vendor/vcms5/public-assets/css/flexslider.css" rel="stylesheet" type="text/css" media="screen">
-    <!-- animated css  -->
-    <link href="/vendor/vcms5/css/animate.css" rel="stylesheet" type="text/css" media="screen">
-    <!--google fonts-->
     <link href='//fonts.googleapis.com/css?family=Raleway:400,500,600,700,800' rel='stylesheet' type='text/css'>
-    <!--owl carousel css-->
-    <link href="/vendor/vcms5/public-assets/css/owl.carousel.css" rel="stylesheet" type="text/css" media="screen">
-    <link href="/vendor/vcms5/public-assets/css/owl.theme.css" rel="stylesheet" type="text/css" media="screen">
-    <!--mega menu -->
-    <link href="/vendor/vcms5/public-assets/css/yamm.css" rel="stylesheet" type="text/css">
-    <!--popups css-->
-    <link href="/vendor/vcms5/public-assets/css/magnific-popup.css" rel="stylesheet" type="text/css">
     <!-- custom css -->
     @include("vcms5::public.partials.vcms-css")
+    <link href="/css/custom.css" rel="stylesheet" type="text/css">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-    <style>
-        /* carousel fade */
-        .carousel-fade .carousel-inner .item {
-            opacity: 0;
-            transition-property: opacity;
-        }
-
-        .carousel-fade .carousel-inner .active {
-            opacity: 1;
-        }
-
-        .carousel-fade .carousel-inner .active.left,
-        .carousel-fade .carousel-inner .active.right {
-            left: 0;
-            opacity: 0;
-            z-index: 1;
-        }
-
-        .carousel-fade .carousel-inner .next.left,
-        .carousel-fade .carousel-inner .prev.right {
-            opacity: 1;
-        }
-
-        .carousel-fade .carousel-control {
-            z-index: 2;
-        }
-
-        .carousel-caption {
-            top: 40%;
-            transform: translateY(-50%);
-            bottom: initial;
-            -webkit-transform-style: preserve-3d;
-            -moz-transform-style: preserve-3d;
-            transform-style: preserve-3d;
-        }
-
-        @media all and (transform-3d),
-        (-webkit-transform-3d) {
-            .carousel-fade .carousel-inner > .item.next,
-            .carousel-fade .carousel-inner > .item.active.right {
-                opacity: 0;
-                -webkit-transform: translate3d(0, 0, 0);
-                transform: translate3d(0, 0, 0);
-            }
-            .carousel-fade .carousel-inner > .item.prev,
-            .carousel-fade .carousel-inner > .item.active.left {
-                opacity: 0;
-                -webkit-transform: translate3d(0, 0, 0);
-                transform: translate3d(0, 0, 0);
-            }
-            .carousel-fade .carousel-inner > .item.next.left,
-            .carousel-fade .carousel-inner > .item.prev.right,
-            .carousel-fade .carousel-inner > .item.active {
-                opacity: 1;
-                -webkit-transform: translate3d(0, 0, 0);
-                transform: translate3d(0, 0, 0);
-            }
-        }
-        /* end slider */
-    </style>
-
 </head>
 
 <body>

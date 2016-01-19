@@ -67,3 +67,11 @@ li.sortable-placeholder {
 img.gallery-thumb {
     max-width: 150px;
 }
+
+#save-edit-region {
+    z-index: 20000;
+}
+
+#cancel-edit-region {
+    z-index: 20000;
+}

@@ -137,6 +137,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
                 Route::post('/page/savepage', '\Tsawler\Vcms5\controllers\VcmsPageController@savePage');
                 Route::get('/admin/page/all-pages', '\Tsawler\Vcms5\controllers\VcmsPageController@getAllPages');
                 Route::get('/admin/page/deletepage', '\Tsawler\Vcms5\controllers\VcmsPageController@getDeletePage');
+                Route::post('/admin/page/savefragment', '\App\Http\Controllers\CatraPageController@postSavefragment');
             });
 
             Route:: group(array('middleware' => 'auth.events'), function () // make sure admin

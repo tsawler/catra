@@ -11,8 +11,8 @@
         <input type="hidden" name="thetitledata" id="thetitledata">
     </article>
     <article class="admin-hidden">
-        <a class="btn btn-primary" href="#!" onclick="saveEditedPage()">Save</a>
-        <a class="btn btn-info" href="#!" onclick="turnOffEditing()">Cancel</a>
+        <a id="save-edit-region" class="btn btn-primary" href="#!" onclick="saveEditedPage()">Save</a>
+        <a id="cancel-edit-region" class="btn btn-info" href="#!" onclick="turnOffEditing()">Cancel</a>
         &nbsp;&nbsp;&nbsp;
     </article>
     <input type="hidden" name="thedata" id="thedata">

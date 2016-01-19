@@ -149,6 +149,7 @@ return [
         Jenssegers\Date\DateServiceProvider::class,
         Tsawler\Vcms5\Vcms5ServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Tsawler\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
 
     ],
 

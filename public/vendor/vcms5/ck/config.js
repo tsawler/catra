@@ -1,6 +1,7 @@
 CKEDITOR.editorConfig = function (config) {
     config.allowedContent = true;
     config.extraAllowedContent = 'iframe[*]';
+    config.disallowedContent = 'script path';
     config.enterMode = CKEDITOR.ENTER_BR;
     config.shiftEnterMode = CKEDITOR.ENTER_BR;
     config.filebrowserImageBrowseUrl = '/laravel-filemanager?type=Images';

@@ -17,7 +17,6 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-
     <![endif]-->
 </head>
 
@@ -79,16 +78,66 @@
 <div class="divide40"></div>
 
 <div class="container">
+
+
     @if ((Auth::user()) && (Auth::user()->hasRole('pages')))
-        <h4>
+        <h4 class="hidden">
             <article style='width: 100%; display: none'>
                 <span id="editablecontenttitle" class="editablecontenttitle">{!! $page_title or ' ' !!}</span>
             </article>
         </h4>
     @else
-        <h4>{!! $page_title or ' ' !!}</h4>
+        <h4 class="hidden">{!! $page_title or ' ' !!}</h4>
     @endif
+    <div class="row">
+        <div class="col-md-6">
+
+            @if(Auth::check())
+                @if(Auth::user()->access_level == 3)
+                    {!! Form::open(array('url' => '/admin/page/savefragment', 'id' => 'savefrag1', 'name' => 'savefrag1')) !!}
+                        <h3 class="red hidden"><span class="editablecontenttitle" id="thetitle1">{!! $fragment_title !!}</span></h3>
+                        <article class="editablefragment" id="f1" data-id="1">
+                            {!! $fragment_text !!}
+                        </article>
+                        <article class="admin-hidden">
+                            <a class="btn btn-primary" href="javascript:void(0)" onclick="saveEditedFragment(1)">Save</a>
+                            <a class="btn btn-info" href="javascript:void(0)" onclick="turnOffEditing()">Cancel</a>
+                            &nbsp;&nbsp;&nbsp;
+                        </article>
+                        <input type="hidden" name="fid" value="1">
+                        <input type="hidden" name="thedata" id="thedata1">
+                        <input type="hidden" name="thetitle" id="thetitledata1">
+                        {!! Form::close() !!}
+                    <p>&nbsp;</p>
+                @endif
+            @endif
+
+            @if(Auth::check())
+                @if(Auth::user()->access_level == 1)
+                        <h3 class="red hidden">{!! $fragment_title !!}</h3>
+                        {!! $fragment_text !!}
+                    <p>&nbsp;</p>
+                @endif
+            @endif
+
+            @if(! Auth::check())
+                    <h3 class="red hidden">{!! $fragment_title !!}</h3>
+                    {!! $fragment_text !!}
+                <p>&nbsp;</p>
+            @endif
+
+
+        </div>
+        <div class="col-md-6">
+            <h3 class="red">{{ Lang::get('home.in_your_region') }}</h3>
+            <div id="map"></div>
+        </div>
+    </div>
+    <hr>
     @include('vcms5::public.partials.edit-region')
+
+
+
 
     <hr>
 
@@ -149,7 +198,7 @@
                 <p>
                         <i class="fa fa-info-circle"></i> <strong>Did You Know:</strong> CATRA changes host provinces every 2 years. Ontario is the current host for 2015.
                         <br><br>
-                        <a class="btn btn-info" href="http://catraonline.ca/en/catra-operations/">Learn More</a>
+                        <a class="btn btn-info" href="/catra-operations/">Learn More</a>
                     </p>
                 </div>
             </div>

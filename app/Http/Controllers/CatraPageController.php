@@ -16,6 +16,7 @@ use Illuminate\Support\Str;
 use Tsawler\Vcms5\controllers\VcmsBaseController;
 use Tsawler\Vcms5\Localize;
 use Tsawler\Vcms5\models\Page;
+use Tsawler\Vcms5\models\Fragment;
 
 
 /**
@@ -55,14 +56,18 @@ class CatraPageController extends VcmsBaseController {
                     $meta = $result->meta;
                     $page_id = $result->id;
                     $meta_keywords = $result->meta_tags;
-                    $fragments = Page::find($result->id)->fragments;
+                    $fragment = Page::find($result->id)->fragments->first();
+                    $fragment_title = $fragment->fragment_title;
+                    $fragment_text = $fragment->fragment_text;
                 } else {
                     $page_title = $result->page_title_fr;
                     $page_content = $result->page_content_fr;
                     $meta = $result->meta;
                     $page_id = $result->id;
                     $meta_keywords = $result->meta_tags;
-                    $fragments = Page::find($result->id)->fragments;
+                    $fragment = Page::find($result->id)->fragments->first();
+                    $fragment_title = $fragment->fragment_title_fr;
+                    $fragment_text = $fragment->fragment_text_fr;
                 }
 
             }
@@ -75,7 +80,8 @@ class CatraPageController extends VcmsBaseController {
             ->with('meta_tags', $meta_keywords)
             ->with('active', $active)
             ->with('page_id', $page_id)
-            ->with('fragments', $fragments)
+            ->with('fragment_title', $fragment_title)
+            ->with('fragment_text', $fragment_text)
             ->with('menu', $this->menu)
             ->with('menu_choice', 'home');
     }
@@ -180,7 +186,7 @@ class CatraPageController extends VcmsBaseController {
             }
         }
 
-        return View::make('public.inside')
+        return View::make('public.inside-operations')
             ->with('page_title', $page_title)
             ->with('page_content', $page_content)
             ->with('meta', $meta)
@@ -294,6 +300,27 @@ class CatraPageController extends VcmsBaseController {
 
         return Redirect::to('/admin/page/all-pages')
             ->with('message', 'Page deleted');
+    }
+
+
+
+    public function postSavefragment()
+    {
+        if (Auth::user()->hasRole('pages')) {
+            if ((Session::has('lang')) && (Session::get('lang') == 'fr')) {
+                $fragment = Fragment::find(Input::get('fid'));
+                $fragment->fragment_text_fr = trim(Input::get('thedata'));
+                $fragment->fragment_title_fr = trim(Input::get('thetitle'));
+                $fragment->save();
+            } else {
+                $fragment = Fragment::find(Input::get('fid'));
+                $fragment->fragment_text = trim(Input::get('thedata'));
+                $fragment->fragment_title = trim(Input::get('thetitle'));
+                $fragment->save();
+            }
+
+            return "Page updated successfully";
+        }
     }
 
 }
