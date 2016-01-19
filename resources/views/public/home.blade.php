@@ -79,18 +79,20 @@
 
 <div class="container">
 
-
-    @if ((Auth::user()) && (Auth::user()->hasRole('pages')))
-        <h4 class="hidden">
-            <article style='width: 100%; display: none'>
-                <span id="editablecontenttitle" class="editablecontenttitle">{!! $page_title or ' ' !!}</span>
-            </article>
-        </h4>
-    @else
-        <h4 class="hidden">{!! $page_title or ' ' !!}</h4>
-    @endif
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-1">
+            @if ((Auth::user()) && (Auth::user()->hasRole('pages')))
+                <h4 class="hidden">
+                    <article style='width: 100%; display: none'>
+                        <span id="editablecontenttitle" class="editablecontenttitle">{!! $page_title or ' ' !!}</span>
+                    </article>
+                </h4>
+            @else
+                <h4 class="hidden">{!! $page_title or ' ' !!}</h4>
+            @endif
+        </div>
+
+        <div class="col-md-5">
 
             @if(Auth::check())
                 @if(Auth::user()->access_level == 3)
@@ -128,62 +130,72 @@
 
 
         </div>
-        <div class="col-md-6">
+        <div class="col-md-5">
             <h3 class="red">{{ Lang::get('home.in_your_region') }}</h3>
             <div id="map"></div>
         </div>
+        <div class="col-md-1"></div>
     </div>
     <hr>
-    @include('vcms5::public.partials.edit-region')
-
-
-
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            @include('vcms5::public.partials.edit-region')
+        </div>
+        <div class="col-md-1"></div>
+    </div>
 
     <hr>
-
-    <h1 class="red">News</h1>
 
     <div class="row">
-        <div class="col-md-4">
-            <div class="thumbnail">
-                <img src="/news-images/soccer-turf.jpg" class="img img-responive" alt="Soccer turf">
-                <div class="caption">
-                    <h3 class="text-center">CATRA STATEMENT ON RECYCLED RUBBER IN SYNTHETIC TURF</h3>
-                    <p class="text-center">
-                        <small>January 11, 2016</small>
-                    </p>
-                    <p class="text-center"><a href="#" class="btn btn-primary" role="button">Read more...</a></p>
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <h1 class="red">News</h1>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <img src="/news-images/soccer-turf.jpg" class="img img-responive" alt="Soccer turf">
+                        <div class="caption">
+                            <h3 class="text-center">CATRA STATEMENT ON RECYCLED RUBBER IN SYNTHETIC TURF</h3>
+                            <p class="text-center">
+                                <small>January 11, 2016</small>
+                            </p>
+                            <p class="text-center"><a href="#" class="btn btn-primary" role="button">Read more...</a></p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="col-md-4">
-            <div class="thumbnail">
-                <img src="/news-images/stats.jpg" class="img img-responive" alt="Statistics">
-                <div class="caption">
-                    <h3 class="text-center">OUR 2014 PROGRAM STATISTICS ARE NOW AVAILABLE</h3>
-                    <p class="text-center">
-                        <small>December 17, 2015</small>
-                    </p>
-                    <p class="text-center"><a href="#" class="btn btn-primary" role="button">Read more...</a></p>
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <img src="/news-images/stats.jpg" class="img img-responive" alt="Statistics">
+                        <div class="caption">
+                            <h3 class="text-center">OUR 2014 PROGRAM STATISTICS ARE NOW AVAILABLE</h3>
+                            <p class="text-center">
+                                <small>December 17, 2015</small>
+                            </p>
+                            <p class="text-center"><a href="#" class="btn btn-primary" role="button">Read more...</a></p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="col-md-4">
-            <div class="thumbnail">
-                <img src="/news-images/trac.png" class="img img-responive" alt="TRAC">
-                <div class="caption">
-                    <h3 class="text-center">RUBBER RECYCLING SYPOSIUM<br>2016</h3>
-                    <p class="text-center">
-                        <small>December 17, 2015</small>
-                    </p>
-                    <p class="text-center"><a href="#" class="btn btn-primary" role="button">Read more...</a></p>
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <img src="/news-images/trac.png" class="img img-responive" alt="TRAC">
+                        <div class="caption">
+                            <h3 class="text-center">RUBBER RECYCLING SYPOSIUM<br>2016</h3>
+                            <p class="text-center">
+                                <small>December 17, 2015</small>
+                            </p>
+                            <p class="text-center"><a href="#" class="btn btn-primary" role="button">Read more...</a></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="col-md-1"></div>
     </div>
-</div>
+
+
 
 <div class="divide20"></div>
 
