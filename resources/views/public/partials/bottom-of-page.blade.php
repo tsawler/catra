@@ -46,26 +46,7 @@
         });
         @endif
 
-        $('#map').vectorMap({
-            map: 'ca_lcc_en',
-            backgroundColor: "#f2f2f0",
-            zoomOnScroll: false,
-            regionStyle: {
-                initial: {
-                    fill: '#404041'
-                },
-                hover: {
-                    fill: "#c22426",
-                    "fill-opacity": 1
-                },
-                selected: {
-                    fill: "#c22426"
-                }
-            },
-            onRegionClick: function (element, code, region) {
-                window.location = '/en/programs/provincial-data/?' + code.toUpperCase();
-            }
-        });
+
     });
 
     $(window).load(function () {

@@ -2,6 +2,7 @@
 
 use App\CatraPage;
 use App\FileUploader;
+use App\PageDetail;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
@@ -168,6 +169,55 @@ class CatraPageController extends VcmsBaseController {
         if ((Cache::has('page_' . $slug . '_' . App::getLocale())) && (getenv('APP_DEBUG') == false)) {
             $results = Cache::get('page_' . $slug . '_' . App::getLocale());
         } else {
+            $results = CatraPage::where('slug', '=', $slug)->first();
+            Cache::forever('page_' . $slug . '_' . App::getLocale(), $results);
+        }
+
+//        foreach ($results as $result) {
+            $active = $results->active;
+
+            if (($active > 0) || ((Auth::check()) && (Auth::user()->hasRole('pages')))) {
+                $page_title_field = Localize::localize('page_title');
+                $page_content_field = Localize::localize('page_content');
+                $page_title = $results->$page_title_field;
+                $page_content = $results->$page_content_field;
+                $page_id = $results->id;
+                $meta_keywords = $results->meta_tags;
+                $meta = $results->meta;
+                $pd = PageDetail::where('page_id', '=', $page_id)->first();
+                $page_category_id = $pd->page_category_id;
+            }
+//        }
+
+        return View::make('public.inside-operations')
+            ->with('page_title', $page_title)
+            ->with('page_content', $page_content)
+            ->with('meta', $meta)
+            ->with('meta_tags', $meta_keywords)
+            ->with('active', $active)
+            ->with('page_id', $page_id)
+            ->with('menu', $this->menu)
+            ->with('menu_choice', $menu_choice)
+            ->with('page_category_id', $page_category_id);
+    }
+
+
+
+    public function showProgramPage()
+    {
+        $slug = Request::segment(1);
+        $page_title = "Not active";
+        $page_content = "Either the page you requested is not active, or it does not exist.";
+        $meta = "";
+        $meta_keywords = "";
+        $active = 1;
+        $page_id = 0;
+        $menu_choice = "";
+
+
+        if ((Cache::has('page_' . $slug . '_' . App::getLocale())) && (getenv('APP_DEBUG') == false)) {
+            $results = Cache::get('page_' . $slug . '_' . App::getLocale());
+        } else {
             $results = CatraPage::where('slug', '=', $slug)->get();
             Cache::forever('page_' . $slug . '_' . App::getLocale(), $results);
         }
@@ -186,7 +236,7 @@ class CatraPageController extends VcmsBaseController {
             }
         }
 
-        return View::make('public.inside-operations')
+        return View::make('public.national-data')
             ->with('page_title', $page_title)
             ->with('page_content', $page_content)
             ->with('meta', $meta)
@@ -194,7 +244,54 @@ class CatraPageController extends VcmsBaseController {
             ->with('active', $active)
             ->with('page_id', $page_id)
             ->with('menu', $this->menu)
-            ->with('menu_choice', $menu_choice);
+            ->with('menu_choice', $menu_choice)
+            ->with('page_category_id', 2);
+    }
+
+
+    public function showProvincialData()
+    {
+        $slug = Request::segment(1);
+        $page_title = "Not active";
+        $page_content = "Either the page you requested is not active, or it does not exist.";
+        $meta = "";
+        $meta_keywords = "";
+        $active = 1;
+        $page_id = 0;
+        $menu_choice = "";
+
+
+        if ((Cache::has('page_' . $slug . '_' . App::getLocale())) && (getenv('APP_DEBUG') == false)) {
+            $results = Cache::get('page_' . $slug . '_' . App::getLocale());
+        } else {
+            $results = CatraPage::where('slug', '=', $slug)->get();
+            Cache::forever('page_' . $slug . '_' . App::getLocale(), $results);
+        }
+
+        foreach ($results as $result) {
+            $active = $result->active;
+
+            if (($active > 0) || ((Auth::check()) && (Auth::user()->hasRole('pages')))) {
+                $page_title_field = Localize::localize('page_title');
+                $page_content_field = Localize::localize('page_content');
+                $page_title = $result->$page_title_field;
+                $page_content = $result->$page_content_field;
+                $page_id = $result->id;
+                $meta_keywords = $result->meta_tags;
+                $meta = $result->meta;
+            }
+        }
+
+        return View::make('public.provincial-data')
+            ->with('page_title', $page_title)
+            ->with('page_content', $page_content)
+            ->with('meta', $meta)
+            ->with('meta_tags', $meta_keywords)
+            ->with('active', $active)
+            ->with('page_id', $page_id)
+            ->with('menu', $this->menu)
+            ->with('menu_choice', $menu_choice)
+            ->with('page_category_id', 2);
     }
 
 
@@ -223,13 +320,18 @@ class CatraPageController extends VcmsBaseController {
         $page_id = Input::get('id');
         if ($page_id > 0) {
             $page = CatraPage::find($page_id);
+//            $page_category_id = $page->pageDetails->page_category_id;
+            $results = PageDetail::where ('page_id', '=', $page->id)->first();
+            $page_category_id = $results->page_category_id;
         } else {
             $page = new CatraPage;
+            $page_category_id = 1;
         }
 
         return View::make('vcms5::admin.pages-edit-page')
             ->with('page_id', $page_id)
-            ->with('page', $page);
+            ->with('page', $page)
+            ->with('page_category_id', $page_category_id);
     }
 
 
@@ -279,7 +381,7 @@ class CatraPageController extends VcmsBaseController {
         }
 
         $detail->page_id = $page_id;
-        $detail->page_type = Input::get("page_type");
+        $detail->page_category_id = Input::get("page_category_id");
         $detail->save();
 
         Cache::flush();

@@ -14,7 +14,7 @@ return array(
     // general options
     'use_fr'                    => true,
     'use_es'                    => false,
-    'use_routes'                => true,
+    'use_routes'                => false,
 
     // image size mins
     'min_img_height'            => 150,

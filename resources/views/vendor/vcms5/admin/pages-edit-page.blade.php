@@ -67,6 +67,24 @@
                             </div>
 
                             <div class="form-group">
+                                {!! Form::label('page_category_id', 'Page Category', array('class' => 'control-label')); !!}
+                                <div class="controls">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-font"></i></span>
+                                        {!! Form::select('page_category_id', array(
+                                        '1' => 'About',
+                                        '2' => 'Programs',
+                                        '3' => 'Our Work',
+                                        '4' => 'Resources',
+                                        '5' => 'Contact'),
+                                        $page_category_id,
+                                        array('class' => 'form-control',
+                                        'style' => 'max-width: 400px;')) !!}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
                                 {!! Form::label('page_content', 'Page Content', array('class' => 'control-label')); !!}
                                 <div class="controls">
                                     {!! Form::textarea('page_content', null); !!}

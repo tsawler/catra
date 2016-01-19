@@ -1,9 +1,9 @@
 @if ((Auth::user()) && (Auth::user()->hasRole('pages')))
-    <h4>
+    <h3 class="red">
         <article style='width: 100%; display: inline'>
             <span id="editablecontenttitle" class="editablecontenttitle">{!! $page_title or ' ' !!}</span>
         </article>
-    </h4>
+    </h3>
 @else
-    <h4>{!! $page_title or ' ' !!}</h4>
+    <h3 class="red">{!! $page_title or ' ' !!}</h3>
 @endif

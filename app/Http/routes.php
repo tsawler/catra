@@ -6,12 +6,20 @@ Route::get('/flushcache', function(){
     if (Input::has ('target')){
         return \Illuminate\Support\Facades\Redirect::to(Input::get('target'));
     } else {
-        return "Flushed";
+        return \Illuminate\Support\Facades\Redirect::back();
     }
+});
+
+Route::get('/test', function(){
+   $page = \App\CatraPage::find(2);
+    dd($page->pageDetails()->id);
 });
 
 // gallery
 Route::get('/gallery', 'GalleryController@getAllItems');
+Route::get('/province', 'ProvincesController@getProvince');
+Route::get('/national-data', 'CatraPageController@showProgramPage');
+Route::get('/provincial-data', 'CatraPageController@showProvincialData');
 
 // calendar & events
 Route::get('/calendar-events', 'EventsController@showCal');
@@ -46,8 +54,8 @@ Route::group(array('before' => 'auth'), function ()
 Route::group(array('before' => 'auth'), function () {
     Route::get('/admin/page/home-page', 'PageController@getShowHomePage');
     Route::post('/admin/page/home-page', 'PageController@postShowHomePage');
-    Route::get('/admin/page/page', 'PageController@getEditpage');
-    Route::post('/admin/page/page', 'PageController@postEditpage');
+    Route::get('/admin/page/page', 'CatraPageController@getEditpage');
+    Route::post('/admin/page/page', 'CatraPageController@postEditpage');
     Route::get('/admin/page/slider', 'PageController@getEditslider');
     Route::post('/admin/page/slider', 'PageController@postEditslider');
     Route::get('/admin/page/deleteimage', 'PageController@getDeletehomepageimage');
