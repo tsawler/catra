@@ -1,7 +1,7 @@
 <table class="table">
     <thead>
         <tr class="danger">
-            <th>{!! Lang::get('provinces.' . $province->province) !!} {!! $province->year !!} Data</th>
+            <th>{!! Lang::get('provinces.' . $province->province) !!} {!! $province->year !!}</th>
             <th>
                 <select id="yearchange" class="form-control" style="max-width: 200px;">
                     <option <?php if ($year == 2014) { echo "selected "; } ?> value=2014>2014</option>
@@ -15,27 +15,30 @@
     </thead>
     <tbody>
         <tr>
-            <td>Data</td>
-            <td>Tonnes (1 tonne = 2,204 lbs)</td>
+            <td>{!! \Illuminate\Support\Facades\Lang::get('common.data') !!}</td>
+            <td>{!! \Illuminate\Support\Facades\Lang::get('common.tonnes') !!}</td>
         </tr>
         <tr>
-            <td>Collected</td>
+            <td>{!! \Illuminate\Support\Facades\Lang::get('common.collected') !!}</td>
             <td>{!! $province->collected !!}</td>
         </tr>
         <tr>
-            <td>Recycled<br><small>(Tire Derived Product)</small></td>
+            <td>{!! \Illuminate\Support\Facades\Lang::get('common.recycled') !!}
+                <br><small>{!! \Illuminate\Support\Facades\Lang::get('common.tire_derived_product') !!}</small></td>
             <td>{!! $province->recycled !!}</td>
         </tr>
         <tr>
-            <td>Energy Recovery<br><small>(Tire Derived Fuel)</small></td>
+            <td>{!! \Illuminate\Support\Facades\Lang::get('common.energy_recovery') !!}
+                <br><small>{!! \Illuminate\Support\Facades\Lang::get('common.tire_derived_fuel') !!}</small></td>
             <td>{!! $province->energy_recovery !!}</td>
         </tr>
         <tr>
-            <td>Diversion Rate<br><small>(TDB + TDF/Collected)</small></td>
+            <td>{!! \Illuminate\Support\Facades\Lang::get('common.diversion_rate') !!}
+                <br><small>{!! \Illuminate\Support\Facades\Lang::get('common.formula') !!}</small></td>
             <td>{!! $province->diversion_rate !!}</td>
         </tr>
         <tr>
-            <td>Five Year Average</td>
+            <td>{!! \Illuminate\Support\Facades\Lang::get('common.five_year_avg') !!}</td>
             <td>{!! $province->five_year_average !!}</td>
         </tr>
 

@@ -1,7 +1,7 @@
 @extends('public.base-inside')
 
-@section('breadcrumb')
-
+@section('browser-title')
+    {!! \Illuminate\Support\Facades\Lang::get('common.catra') !!}
 @stop
 
 @section('content')

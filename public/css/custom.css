@@ -180,3 +180,7 @@ a.redlink:link, a.redlink:visited, a.redlink:active {
     margin-left: -9px
 }
 /* end children */
+
+.larger-text {
+    font-size: 1.5em;
+}

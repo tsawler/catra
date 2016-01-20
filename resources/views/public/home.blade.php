@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CATRA - Canadian Association of Tire Recycling Agencies</title>
+    <title>{!! \Illuminate\Support\Facades\Lang::get('common.catra') !!} -
+        {!! \Illuminate\Support\Facades\Lang::get('common.title_blurb') !!}</title>
 
     <link href="/vendor/vcms5/public-assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/vendor/vcms5/public-assets/css/style.css" rel="stylesheet" type="text/css" media="screen">

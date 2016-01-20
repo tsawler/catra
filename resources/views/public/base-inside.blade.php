@@ -8,71 +8,70 @@
         <div class="col-md-10">
 
             @if ($page_category_id  == 1)
-                <ul id="children">
+                <ul id="children" class="hidden-xs">
                     @if(Request::segment(1) == "catra-operations")
-                        <li class="here first overview"><a href="/catra-operations">CATRA Operations</a></li>
+                        <li class="here first overview"><a href="/catra-operations">{!! \Illuminate\Support\Facades\Lang::get('common.catra_operations') !!}</a></li>
                     @else
-                        <li><a href="/catra-operations">CATRA Operations</a></li>
+                        <li><a href="/catra-operations">{!! \Illuminate\Support\Facades\Lang::get('common.catra_operations') !!}</a></li>
                     @endif
 
                     @if(Request::segment(1) == "history")
-                        <li class="here first overview"><a href="/history">History</a></li>
+                        <li class="here first overview"><a href="/history">{!! \Illuminate\Support\Facades\Lang::get('common.history') !!}</a></li>
                     @else
-                        <li><a href="/history">History</a></li>
+                        <li><a href="/history">{!! \Illuminate\Support\Facades\Lang::get('common.history') !!}</a></li>
                     @endif
 
                     @if(Request::segment(1) == "goals")
-                        <li class="here first overview"><a href="/goals">Goals</a></li>
+                        <li class="here first overview"><a href="/goals">{!! \Illuminate\Support\Facades\Lang::get('common.goals') !!}</a></li>
                     @else
-                        <li><a href="/goals">Goals</a></li>
+                        <li><a href="/goals">{!! \Illuminate\Support\Facades\Lang::get('common.goals') !!}</a></li>
                     @endif
 
                     @if(Request::segment(1) == "members")
-                        <li class="here first overview"><a href="/members">Members</a></li>
+                        <li class="here first overview"><a href="/members">{!! \Illuminate\Support\Facades\Lang::get('common.members') !!}</a></li>
                     @else
-                        <li><a href="/members">Members</a></li>
+                        <li><a href="/members">{!! \Illuminate\Support\Facades\Lang::get('common.members') !!}</a></li>
                     @endif
 
                     @if(Request::segment(1) == "epr-extended-producer-responsibility")
-                        <li class="here first overview"><a href="/epr-extended-producer-responsibility">EPR (Extended Producer
-                                Responsibility)</a></li>
+                        <li class="here first overview"><a href="/epr-extended-producer-responsibility">{!! \Illuminate\Support\Facades\Lang::get('common.epr') !!}</a></li>
                     @else
-                        <li><a href="/epr-extended-producer-responsibility">EPR (Extended Producer Responsibility)</a></li>
+                        <li><a href="/epr-extended-producer-responsibility">{!! \Illuminate\Support\Facades\Lang::get('common.epr') !!}</a></li>
                     @endif
 
                 </ul>
             @elseif ($page_category_id  == 2)
-                <ul id="children">
+                <ul id="children" class="hidden-xs">
                     @if(Request::segment(1) == "national-data")
-                        <li class="here first overview"><a href="/national-data">National Data</a></li>
+                        <li class="here first overview"><a href="/national-data">{!! \Illuminate\Support\Facades\Lang::get('common.national_data') !!}</a></li>
                     @else
-                        <li><a href="/national-data">National Data</a></li>
+                        <li><a href="/national-data">{!! \Illuminate\Support\Facades\Lang::get('common.national_data') !!}</a></li>
                     @endif
 
                     @if(Request::segment(1) == "provincial-data")
-                        <li class="here first overview"><a href="/provincial-data">Provincial Data</a></li>
+                        <li class="here first overview"><a href="/provincial-data">{!! \Illuminate\Support\Facades\Lang::get('common.provincial_data') !!}</a></li>
                     @else
-                        <li><a href="/provincial-data">Provincial Data</a></li>
+                        <li><a href="/provincial-data">{!! \Illuminate\Support\Facades\Lang::get('common.provincial_data') !!}</a></li>
                     @endif
 
                     @if(Request::segment(1) == "tire-businesses")
-                        <li class="here first overview"><a href="/tire-businesses">Tire Businesses</a></li>
+                        <li class="here first overview"><a href="/tire-businesses">{!! \Illuminate\Support\Facades\Lang::get('common.tire_businesses') !!}</a></li>
                     @else
-                        <li><a href="/tire-businesses">Tire Businesses</a></li>
+                        <li><a href="/tire-businesses">{!! \Illuminate\Support\Facades\Lang::get('common.tire_businesses') !!}</a></li>
                     @endif
                 </ul>
             @elseif($page_category_id == 3)
                 <ul id="children">
                     @if(Request::segment(1) == "research")
-                        <li class="here first overview"><a href="/research">Research</a></li>
+                        <li class="here first overview"><a href="/research">{!! \Illuminate\Support\Facades\Lang::get('common.research') !!}</a></li>
                     @else
-                        <li><a href="/research">Research</a></li>
+                        <li><a href="/research">{!! \Illuminate\Support\Facades\Lang::get('common.research') !!}</a></li>
                     @endif
 
                     @if(Request::segment(1) == "publications")
-                        <li class="here first overview"><a href="/publications">Publications</a></li>
+                        <li class="here first overview"><a href="/publications">{!! \Illuminate\Support\Facades\Lang::get('common.publications') !!}</a></li>
                     @else
-                        <li><a href="/publications">Publications</a></li>
+                        <li><a href="/publications">{!! \Illuminate\Support\Facades\Lang::get('common.publications') !!}</a></li>
                     @endif
                 </ul>
             @endif

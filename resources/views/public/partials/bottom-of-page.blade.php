@@ -1,23 +1,30 @@
 <footer id="footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
-                <img src="/img/logo-en.png" class="img img-responsive">
+            <div class="col-md-1"></div>
+            <div class="col-md-10 text-center larger-text">
+                <?php
+                $results = \App\DidYouKnow::orderByRaw("RAND()")->limit(1)->get();
+                  foreach($results as $item){
+                      if ((\Illuminate\Support\Facades\Session::has('lang')) &&
+                        (\Illuminate\Support\Facades\Session::get('lang') == 'fr')) {
+                          $blurb = $item->item_text_fr;
+                      } else {
+                          $blurb = $item->item_text_en;
+                      }
+                  }
+                ?>
+                <i class="fa fa-info-circle"></i> <strong>{!! \Illuminate\Support\Facades\Lang::get('common.did_you_know') !!}:</strong> {!! strip_tags($blurb) !!}
+                <br><br>
+                <a class="btn btn-info" href="/catra-operations">{!! \Illuminate\Support\Facades\Lang::get('common.learn_more') !!}</a>
             </div>
-            <div class="col-md-8">
-                <div class="alert alert-info fade in margin-bottom-40 fact">
-                    <p>
-                        <i class="fa fa-info-circle"></i> <strong>Did You Know:</strong> CATRA changes host provinces every 2 years. Ontario is the current host for 2015.
-                        <br><br>
-                        <a class="btn btn-info" href="/catra-operations">Learn More</a>
-                    </p>
-                </div>
-            </div>
+            <div class="col-md-1"></div>
         </div>
         <hr>
         <div class="row">
             <div class="col-md-12 text-center">
-                <p><small>Copyright &copy; {!! date("Y") !!} CATRA. All rights reserved.</small></p>
+                <p><small>Copyright &copy; {!! date("Y") !!} {!! \Illuminate\Support\Facades\Lang::get('common.catra') !!}.
+                        {!! \Illuminate\Support\Facades\Lang::get('common.all_rights_reserved') !!}.</small></p>
             </div>
         </div>
     </div>
