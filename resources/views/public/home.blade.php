@@ -261,7 +261,7 @@
                 }
             },
             onRegionClick: function (element, code, region) {
-                window.location = '/en/programs/provincial-data/?' + code.toUpperCase();
+                window.location = '/provincial-data?region=' + code.toUpperCase();
             }
         });
     });
