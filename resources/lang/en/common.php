@@ -30,4 +30,8 @@ return [
     'formula'              => '(TDB + TDF/Collected)',
     'five_year_avg'        => '5 yr average',
     'tonnes'               => 'Tonnes (1 tonne = 2,204 lbs)',
+    'logo'                 => 'logo-en.png',
+    'slide-1'              => 'slide-1.jpg',
+    'slide-2'              => 'slide-2.jpg',
+    'slide-3'              => 'slide-3.jpg',
 ];

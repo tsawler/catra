@@ -30,5 +30,9 @@ return [
     'formula'              => '(PDP + CDP/recueillies)',
     'five_year_avg'        => 'Moyenne sur 5 ans',
     'tonnes'               => 'Tonnes (1 tonne = 2 204 lb)',
+    'logo'                 => 'logo-fr.png',
+    'slide-1'              => 'slide-1-fr.jpg',
+    'slide-2'              => 'slide-2-fr.jpg',
+    'slide-3'              => 'slide-3-fr.jpg',
 
 ];

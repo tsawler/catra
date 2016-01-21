@@ -2,6 +2,8 @@
 
 @include('public.partials.top-menu')
 
+@yield('image_banner')
+
 <div class="container">
     <div class="row">
         <div class="col-md-1"></div>

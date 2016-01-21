@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
 use Tsawler\Vcms5\controllers\VcmsBaseController;
 use Tsawler\Vcms5\Localize;
+use Tsawler\Vcms5\models\News;
 use Tsawler\Vcms5\models\Page;
 use Tsawler\Vcms5\models\Fragment;
 
@@ -74,6 +75,9 @@ class CatraPageController extends VcmsBaseController {
             }
         }
 
+        // get news
+        $news = News::where('active','=',1)->orderBy('created_at')->limit(3)->get();
+
         return View::make('public.home')
             ->with('page_title', $page_title)
             ->with('page_content', $page_content)
@@ -84,7 +88,8 @@ class CatraPageController extends VcmsBaseController {
             ->with('fragment_title', $fragment_title)
             ->with('fragment_text', $fragment_text)
             ->with('menu', $this->menu)
-            ->with('menu_choice', 'home');
+            ->with('menu_choice', 'home')
+            ->with('news', $news);
     }
 
 

@@ -1,5 +1,9 @@
 @extends('public.base-inside')
 
+@section('browser-title')
+    {!! \Illuminate\Support\Facades\Lang::get('common.catra') !!}
+@stop
+
 @section('content')
     <div class="clearfix"></div>
     <div class="divide40"></div>

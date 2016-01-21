@@ -35,6 +35,7 @@
 <script src="/vendor/vcms5/public-assets/js/jquery.min.js"></script>
 <script src="/vendor/vcms5/public-assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="/vendor/vcms5/public-assets/js/jquery.sticky.js"></script>
+<script src="/vendor/vcms5/public-assets/js/jquery.stellar.min.js"></script>
 <script src="/js/jquery-jvectormap-1.2.2.min.js"></script>
 <script src="/js/jquery.vmap.canada.js"></script>
 

@@ -56,19 +56,19 @@
 
     <div class="carousel-inner" role="listbox">
         <div class="item active">
-            <img src="/img/slider/slide-1.jpg" alt="Slide1">
+            <img src="/img/slider/{!! Lang::get('common.slide-1') !!}" alt="Slide1">
             <div class="container">
 
             </div>
         </div>
         <div class="item">
-            <img src="/img/slider/slide-2.jpg" alt="Slide2">
+            <img src="/img/slider/{!! Lang::get('common.slide-2') !!}" alt="Slide2">
             <div class="container">
 
             </div>
         </div>
         <div class="item">
-            <img src="/img/slider/slide-3.jpg" alt="Slide3">
+            <img src="/img/slider/{!! Lang::get('common.slide-3') !!}" alt="Slide3">
             <div class="container">
 
             </div>
@@ -153,77 +153,73 @@
         <div class="col-md-10">
             <h1 class="red">News</h1>
             <div class="row">
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <img src="/news-images/soccer-turf.jpg" class="img img-responive" alt="Soccer turf">
-                        <div class="caption">
-                            <h3 class="text-center">CATRA STATEMENT ON RECYCLED RUBBER IN SYNTHETIC TURF</h3>
-                            <p class="text-center">
-                                <small>January 11, 2016</small>
-                            </p>
-                            <p class="text-center"><a href="#" class="btn btn-primary" role="button">Read more...</a></p>
+            @foreach($news as $item)
+                    @if((Session::has('lang')) && (Session::get('lang') == 'fr'))
+                    <div class="col-md-4">
+                        <div class="thumbnail" style="min-height: 475px">
+                            <img src="/vendor/vcms5/news/thumbs/{!! $item->image !!}" class="img img-responive" alt="Soccer turf">
+                            <div class="caption">
+                                <h3 class="text-center">{!! $item->title_fr !!}</h3>
+                                <p class="text-center">
+                                    <small>{!! $item->news_date !!}</small>
+                                </p>
+                                <p class="text-center"><a href="/news/{!! $item->slug !!}" class="btn btn-primary" role="button">{!! Lang::get('common.learn_more') !!}</a></p>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <img src="/news-images/stats.jpg" class="img img-responive" alt="Statistics">
-                        <div class="caption">
-                            <h3 class="text-center">OUR 2014 PROGRAM STATISTICS ARE NOW AVAILABLE</h3>
-                            <p class="text-center">
-                                <small>December 17, 2015</small>
-                            </p>
-                            <p class="text-center"><a href="#" class="btn btn-primary" role="button">Read more...</a></p>
+                    @else
+                    <div class="col-md-4">
+                        <div class="thumbnail">
+                            <img src="/vendor/vcms5/news/thumbs/{!! $item->image !!}" class="img img-responive" alt="Soccer turf">
+                            <div class="caption">
+                                <h3 class="text-center">{!! $item->title !!}</h3>
+                                <p class="text-center">
+                                    <small>{!! $item->news_date !!}</small>
+                                </p>
+                                <p class="text-center"><a href="/news/{!! $item->slug !!}" class="btn btn-primary" role="button">{!! Lang::get('common.learn_more') !!}</a></p>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <img src="/news-images/trac.png" class="img img-responive" alt="TRAC">
-                        <div class="caption">
-                            <h3 class="text-center">RUBBER RECYCLING SYPOSIUM<br>2016</h3>
-                            <p class="text-center">
-                                <small>December 17, 2015</small>
-                            </p>
-                            <p class="text-center"><a href="#" class="btn btn-primary" role="button">Read more...</a></p>
-                        </div>
-                    </div>
-                </div>
+                    @endif
+            @endforeach
             </div>
         </div>
         <div class="col-md-1"></div>
     </div>
 
-
-
 <div class="divide20"></div>
 
-<footer id="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <img src="/img/logo-en.png" class="img img-responsive">
+<foo<footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10 text-center larger-text">
+                    <?php
+                    $results = \App\DidYouKnow::orderByRaw("RAND()")->limit(1)->get();
+                    foreach($results as $item){
+                        if ((\Illuminate\Support\Facades\Session::has('lang')) &&
+                                (\Illuminate\Support\Facades\Session::get('lang') == 'fr')) {
+                            $blurb = $item->item_text_fr;
+                        } else {
+                            $blurb = $item->item_text_en;
+                        }
+                    }
+                    ?>
+                    <i class="fa fa-info-circle"></i> <strong>{!! \Illuminate\Support\Facades\Lang::get('common.did_you_know') !!}:</strong> {!! strip_tags($blurb) !!}
+                    <br><br>
+                    <a class="btn btn-info" href="/catra-operations">{!! \Illuminate\Support\Facades\Lang::get('common.learn_more') !!}</a>
+                </div>
+                <div class="col-md-1"></div>
             </div>
-            <div class="col-md-8">
-                <div class="alert alert-info fade in margin-bottom-40 fact">
-                <p>
-                        <i class="fa fa-info-circle"></i> <strong>Did You Know:</strong> CATRA changes host provinces every 2 years. Ontario is the current host for 2015.
-                        <br><br>
-                        <a class="btn btn-info" href="/catra-operations/">Learn More</a>
-                    </p>
+            <hr>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p><small>Copyright &copy; {!! date("Y") !!} {!! \Illuminate\Support\Facades\Lang::get('common.catra') !!}.
+                            {!! \Illuminate\Support\Facades\Lang::get('common.all_rights_reserved') !!}.</small></p>
                 </div>
             </div>
         </div>
-        <hr>
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <p><small>Copyright &copy; {!! date("Y") !!} CATRA. All rights reserved.</small></p>
-            </div>
-        </div>
-    </div>
-</footer>
+    </footer>
 
 <div class="divide20"></div>
 

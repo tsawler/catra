@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="/">
-                <img src="/img/logo-en.png" alt="Logo" style="min-width: 200px; margin-top: -15px;">
+                <img src="/img/{!! Lang::get('common.logo') !!}" alt="Logo" style="min-width: 200px; margin-top: -15px;">
             </a>
         </div>
 

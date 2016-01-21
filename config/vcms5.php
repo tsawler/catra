@@ -19,12 +19,12 @@ return array(
     // image size mins
     'min_img_height'            => 150,
     'min_img_width'             => 267,
-    'max_img_height'            => 768,
-    'max_img_width'             => 1024,
-    'thumb_size'                => 200,
+    'max_img_height'            => 1600,
+    'max_img_width'             => 2048,
+    'thumb_size'                => 500,
 
-    'max_blog_img_width'        => 1024,
-    'max_blog_img_height'       => 768,
+    'max_blog_img_width'        => 2048,
+    'max_blog_img_height'       => 1600,
 
     // database tables
     'pages_table'               => 'pages',
