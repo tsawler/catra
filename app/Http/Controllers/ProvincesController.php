@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Image;
 use App\Province;
 use Illuminate\Http\Request;
 
@@ -20,9 +21,12 @@ class ProvincesController extends Controller
             $year = 2014;
 
         $result = Province::where('province', '=', $province)->where('year', '=', $year)->first();
+        $img = Image::where('province', '=', $province)->first();
+        $image = $img->image;
 
         return View::make('public.province')
             ->with('province', $result)
+            ->with('image', $image)
             ->with('year', $year);
     }
 }

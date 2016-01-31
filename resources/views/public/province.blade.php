@@ -15,6 +15,9 @@
     </thead>
     <tbody>
         <tr>
+            <td colspan="2"><img src="/img/logos/{!! $image !!}" class="img img-responsive"></td>
+        </tr>
+        <tr>
             <td>{!! \Illuminate\Support\Facades\Lang::get('common.data') !!}</td>
             <td>{!! \Illuminate\Support\Facades\Lang::get('common.tonnes') !!}</td>
         </tr>
