@@ -16,16 +16,17 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
 use Tsawler\Vcms5\controllers\VcmsBaseController;
 use Tsawler\Vcms5\Localize;
+use Tsawler\Vcms5\models\Fragment;
 use Tsawler\Vcms5\models\News;
 use Tsawler\Vcms5\models\Page;
-use Tsawler\Vcms5\models\Fragment;
 
 
 /**
  * Class CatraPageController
  * @package App\Http\Controllers
  */
-class CatraPageController extends VcmsBaseController {
+class CatraPageController extends VcmsBaseController
+{
 
     /**
      * Show the home page
@@ -76,7 +77,7 @@ class CatraPageController extends VcmsBaseController {
         }
 
         // get news
-        $news = News::where('active','=',1)->orderBy('created_at')->limit(3)->get();
+        $news = News::where('active', '=', 1)->orderBy('created_at')->limit(3)->get();
 
         return View::make('public.home')
             ->with('page_title', $page_title)
@@ -105,20 +106,20 @@ class CatraPageController extends VcmsBaseController {
             $validator = null;
 
             if (Session::get('lang') == "en") {
-                $update_rules = array(
+                $update_rules = [
                     'thedata'      => 'required|min:2',
-                    'thetitledata' => 'required|min:2|unique:pages,page_title,' . Input::get('page_id')
-                );
+                    'thetitledata' => 'required|min:2|unique:pages,page_title,' . Input::get('page_id'),
+                ];
             } else if (Session::get('lang' == 'fr')) {
-                $update_rules = array(
+                $update_rules = [
                     'thedata'      => 'required|min:2',
-                    'thetitledata' => 'required|min:2|unique:pages,page_title_fr,' . Input::get('page_id')
-                );
+                    'thetitledata' => 'required|min:2|unique:pages,page_title_fr,' . Input::get('page_id'),
+                ];
             } else {
-                $update_rules = array(
+                $update_rules = [
                     'thedata'      => 'required|min:2',
-                    'thetitledata' => 'required|min:2|unique:pages,page_title_es,' . Input::get('page_id')
-                );
+                    'thetitledata' => 'required|min:2|unique:pages,page_title_es,' . Input::get('page_id'),
+                ];
             }
             $validator = Validator::make(Input::all(), $update_rules);
 
@@ -166,7 +167,6 @@ class CatraPageController extends VcmsBaseController {
         $page_content = "Either the page you requested is not active, or it does not exist.";
         $meta = "";
         $meta_keywords = "";
-        $active = 1;
         $page_id = 0;
         $menu_choice = "";
 
@@ -178,21 +178,19 @@ class CatraPageController extends VcmsBaseController {
             Cache::forever('page_' . $slug . '_' . App::getLocale(), $results);
         }
 
-//        foreach ($results as $result) {
-            $active = $results->active;
+        $active = $results->active;
 
-            if (($active > 0) || ((Auth::check()) && (Auth::user()->hasRole('pages')))) {
-                $page_title_field = Localize::localize('page_title');
-                $page_content_field = Localize::localize('page_content');
-                $page_title = $results->$page_title_field;
-                $page_content = $results->$page_content_field;
-                $page_id = $results->id;
-                $meta_keywords = $results->meta_tags;
-                $meta = $results->meta;
-                $pd = PageDetail::where('page_id', '=', $page_id)->first();
-                $page_category_id = $pd->page_category_id;
-            }
-//        }
+        if (($active > 0) || ((Auth::check()) && (Auth::user()->hasRole('pages')))) {
+            $page_title_field = Localize::localize('page_title');
+            $page_content_field = Localize::localize('page_content');
+            $page_title = $results->$page_title_field;
+            $page_content = $results->$page_content_field;
+            $page_id = $results->id;
+            $meta_keywords = $results->meta_tags;
+            $meta = $results->meta;
+            $pd = PageDetail::where('page_id', '=', $page_id)->first();
+            $page_category_id = $pd->page_category_id;
+        }
 
         return View::make('public.inside-operations')
             ->with('page_title', $page_title)
@@ -207,7 +205,9 @@ class CatraPageController extends VcmsBaseController {
     }
 
 
-
+    /**
+     * @return mixed
+     */
     public function showProgramPage()
     {
         $slug = Request::segment(1);
@@ -254,6 +254,9 @@ class CatraPageController extends VcmsBaseController {
     }
 
 
+    /**
+     * @return mixed
+     */
     public function showProvincialData()
     {
         $slug = Request::segment(1);
@@ -325,8 +328,7 @@ class CatraPageController extends VcmsBaseController {
         $page_id = Input::get('id');
         if ($page_id > 0) {
             $page = CatraPage::find($page_id);
-//            $page_category_id = $page->pageDetails->page_category_id;
-            $results = PageDetail::where ('page_id', '=', $page->id)->first();
+            $results = PageDetail::where('page_id', '=', $page->id)->first();
             $page_category_id = $results->page_category_id;
         } else {
             $page = new CatraPage;
@@ -410,7 +412,9 @@ class CatraPageController extends VcmsBaseController {
     }
 
 
-
+    /**
+     * @return string
+     */
     public function postSavefragment()
     {
         if (Auth::user()->hasRole('pages')) {

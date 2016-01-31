@@ -2,15 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\View;
 use Tsawler\Vcms5\controllers\VcmsBaseController;
 
+/**
+ * Class ContactController
+ * @package App\Http\Controllers
+ */
 class ContactController extends VcmsBaseController
 {
+
+    /**
+     * @return mixed
+     */
     public function getContact()
     {
         $menu_choice = "";

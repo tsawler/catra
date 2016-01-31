@@ -20,9 +20,24 @@ use Tsawler\Vcms5\models\News;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Lang;
 
+/**
+ * Class NewsController
+ * @package App\Http\Controllers
+ */
 class NewsController extends VcmsNewsController
 {
 
+    /**
+     * @return string
+     */
+    public function allNews()
+    {
+        return "Foo";
+    }
+
+    /**
+     * @return mixed
+     */
     public function showNews()
     {
         $slug = Request::segment(2);
