@@ -27,12 +27,19 @@ use Illuminate\Support\Facades\Lang;
 class NewsController extends VcmsNewsController
 {
 
-    /**
-     * @return string
-     */
-    public function allNews()
+    public function index()
     {
-        return "Foo";
+        $news = News::where('active', '=', '1')
+            ->where('news_date', '<=', date('Y-m-d'))
+            ->orderby('news_date', 'desc')
+            ->orderby('title')
+            ->paginate(10);
+
+        return View::make('public.news-list')
+            ->with('news', $news)
+            ->with('menu', $this->menu)
+            ->with('page_category_id', 4)
+            ->with('page_title', Lang::get('vcms5::vcms5.news'));
     }
 
     /**

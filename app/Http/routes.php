@@ -33,7 +33,7 @@ Route::get('/event/{id}/{title?}', 'EventsController@showEvent');
 // Search
 Route::post('/search', 'SearchController@performSearch');
 
-Route::get('/news/all', 'NewsController@allNews');
+Route::get('/news/all', 'NewsController@index');
 Route::get('/news/{slug}', 'NewsController@showNews');
 
 // login
