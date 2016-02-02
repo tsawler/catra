@@ -34,4 +34,5 @@ return [
     'slide-1'              => 'slide-1.jpg',
     'slide-2'              => 'slide-2.jpg',
     'slide-3'              => 'slide-3.jpg',
+    'news'                 => 'News',
 ];

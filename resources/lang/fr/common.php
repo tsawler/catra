@@ -34,5 +34,6 @@ return [
     'slide-1'              => 'slide-1-fr.jpg',
     'slide-2'              => 'slide-2-fr.jpg',
     'slide-3'              => 'slide-3-fr.jpg',
+    'news'                 => 'Nouvelles',
 
 ];
