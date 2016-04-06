@@ -144,6 +144,7 @@
                             },
                             complete: function () {
                                 $("#current_province").val(provincecode);
+                                e.preventDefault();
                             }
                         });
                         e.preventDefault();
