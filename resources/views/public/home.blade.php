@@ -23,13 +23,13 @@
 
 <body>
 
-<div id="header-top" class="hidden-xs">
+<div id="header-top" class="">
     <div class="container">
         <div class="top-bar">
             <div class="pull-left sample-1right">
                 @include('vcms5::public.partials.language-menu')
             </div>
-            <div class="pull-right">
+            <div class="pull-right hidden-xs">
                 <ul class="list-inline top-social">
                     <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
