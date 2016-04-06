@@ -129,27 +129,28 @@
                 onRegionClick: function (element, code, region) {
                     var exploded = code.split("-");
                     var provincecode = exploded[1];
-                    if (iOS) {
-                        $.ajax({
-                            url: '/province',
-                            type: 'get',
-                            data: 'province=' + provincecode,
-                            dataType: 'html',
-                            success: function (theresult) {
-                                $("#region").html(theresult);
-                                return false;
-                            },
-                            error: function () {
-                                alert('error');
-                            },
-                            complete: function () {
-                                $("#current_province").val(provincecode);
-                                e.preventDefault();
-                            }
-                        });
+                    $.ajax({
+                        url: '/province',
+                        type: 'get',
+                        data: 'province=' + provincecode,
+                        dataType: 'html',
+                        success: function (theresult) {
+                            $("#region").html(theresult);
+                            return false;
+                        },
+                        error: function () {
+                            alert('error');
+                        },
+                        complete: function () {
+                            $("#current_province").val(provincecode);
+                        }
+                    });
+                },
+                onRegionLabelShow: function (e, code, region) {
+                    if (iOs) {
                         e.preventDefault();
-                    } else {
-
+                        var exploded = code.split("-");
+                        var provincecode = exploded[1];
                         $.ajax({
                             url: '/province',
                             type: 'get',
