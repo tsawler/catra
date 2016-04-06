@@ -243,7 +243,7 @@
             locale: "es"
         });
         @endif
-
+        var iOS = /(iPad|iPhone|iPod)/g.test( navigator.userAgent );
         $('#map').vectorMap({
             map: 'ca_lcc_en',
             backgroundColor: "#f2f2f0",
@@ -261,7 +261,12 @@
                 }
             },
             onRegionClick: function (element, code, region) {
-                window.location.href = '/provincial-data?region=' + code.toUpperCase();
+                if (iOS) {
+                    e.preventDefault();
+                    window.location.href = '/provincial-data?region=' + code.toUpperCase();
+                } else {
+                    window.location.href = '/provincial-data?region=' + code.toUpperCase();
+                }
             }
         });
     });
