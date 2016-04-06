@@ -262,8 +262,9 @@
             },
             onRegionClick: function (element, code, region) {
                 if (iOS) {
-                    e.preventDefault();
+
                     window.location.href = '/provincial-data?region=' + code.toUpperCase();
+                    e.preventDefault();
                 } else {
                     window.location.href = '/provincial-data?region=' + code.toUpperCase();
                 }
