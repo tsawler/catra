@@ -130,7 +130,23 @@
                     var exploded = code.split("-");
                     var provincecode = exploded[1];
                     if (iOS) {
-
+                        $.ajax({
+                            url: '/province',
+                            type: 'get',
+                            data: 'province=' + provincecode,
+                            dataType: 'html',
+                            success: function (theresult) {
+                                $("#region").html(theresult);
+                                return false;
+                            },
+                            error: function () {
+                                alert('error');
+                            },
+                            complete: function () {
+                                $("#current_province").val(provincecode);
+                            }
+                        });
+                        e.preventDefault();
                     } else {
 
                         $.ajax({
@@ -149,7 +165,6 @@
                                 $("#current_province").val(provincecode);
                             }
                         });
-                        e.preventDefault();
                     }
                 }
             });
