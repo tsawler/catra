@@ -40,5 +40,26 @@
             </li>
 
         @endforeach
+
+        @foreach($news as $item)
+            @if (\Illuminate\Support\Facades\Session::get('lang') == 'en')
+                <li>
+                    <h4><a href="/news/{!! $item->slug !!}">{!! $item->title !!}</a></h4>
+
+                    <p>
+                        {!! str_limit($item->news_text, 200) !!}
+                    </p>
+                </li>
+            @else
+                <li>
+                    <h4><a href="/news/{!! $item->slug !!}">{!! $item->title_fr !!}</a></h4>
+
+                    <p>
+                        {!! str_limit($item->news_text_fr, 200) !!}
+                    </p>
+                </li>
+            @endif
+
+        @endforeach
     </ul>
 @stop
