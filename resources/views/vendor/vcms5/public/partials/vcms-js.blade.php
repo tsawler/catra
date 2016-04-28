@@ -330,9 +330,9 @@
             $("#thetitledata").val(data);
 
             // get the changed data;
-            var pagedata = editor.getData();
+            var data = CKEDITOR.instances['editablecontent'].getData();
             // save the changed data
-            $("#thedata").val(pagedata);
+            $("#thedata").val(data);
 
             var options = {target: '#theeditmsg', success: showResponse};
             $("#savetitledata").unbind('submit').ajaxSubmit(options);

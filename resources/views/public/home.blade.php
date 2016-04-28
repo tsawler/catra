@@ -103,8 +103,8 @@
                             {!! $fragment_text !!}
                         </article>
                         <article class="admin-hidden">
-                            <a class="btn btn-primary" href="javascript:void(0)" onclick="saveEditedFragment(1)">Save</a>
-                            <a class="btn btn-info" href="javascript:void(0)" onclick="turnOffEditing()">Cancel</a>
+                            <a class="btn btn-primary" href="javascript:void(0);return false" onclick="saveEditedFragment(1)">Save</a>
+                            <a class="btn btn-info" href="javascript:void(0); return false" onclick="turnOffEditing()">Cancel</a>
                             &nbsp;&nbsp;&nbsp;
                         </article>
                         <input type="hidden" name="fid" value="1">

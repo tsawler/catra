@@ -329,7 +329,11 @@ class CatraPageController extends VcmsBaseController
         if ($page_id > 0) {
             $page = CatraPage::find($page_id);
             $results = PageDetail::where('page_id', '=', $page->id)->first();
-            $page_category_id = $results->page_category_id;
+            if ($results) {
+                $page_category_id = $results->page_category_id;
+            } else {
+                $page_category_id = 0;
+            }
         } else {
             $page = new CatraPage;
             $page_category_id = 1;

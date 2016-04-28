@@ -331,6 +331,8 @@
 
             // get the changed data;
             var pagedata = editor.getData();
+            var data = CKEDITOR.instances['#editablecontent'].getData();
+            alert(data);
             // save the changed data
             $("#thedata").val(pagedata);
 
