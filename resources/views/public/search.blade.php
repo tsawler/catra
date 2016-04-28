@@ -30,14 +30,23 @@
     </div>
     <ul class="list-unstyled">
         @foreach($results as $item)
+            @if (\Illuminate\Support\Facades\Session::get('lang') == 'en')
+                <li>
+                    <h4><a href="/{!! $item->slug !!}">{!! $item->page_title !!}</a></h4>
 
-            <li>
-                <h4><a href="/{!! $item->slug !!}">{!! $item->page_title !!}</a></h4>
+                    <p>
+                        {!! str_limit(strip_tags($item->page_content, 200)) !!}
+                    </p>
+                </li>
+            @else
+                <li>
+                    <h4><a href="/{!! $item->slug !!}">{!! $item->page_title_fr !!}</a></h4>
 
-                <p>
-                    {!! str_limit(strip_tags($item->page_content, 200)) !!}
-                </p>
-            </li>
+                    <p>
+                        {!! str_limit(strip_tags($item->page_content_fr, 200)) !!}
+                    </p>
+                </li>
+            @endif
 
         @endforeach
 

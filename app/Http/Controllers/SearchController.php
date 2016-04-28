@@ -53,6 +53,8 @@ class SearchController extends VcmsSearchController
 
         } else {
             return View::make('public.search')
+                ->with('page_title', 'Search')
+                ->with('searchterm', '')
                 ->with('results', [])
                 ->with('news', [])
                 ->with('page_category_id', 1)
