@@ -149,6 +149,11 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
                 Route::get('/admin/page/deletepage', '\Tsawler\Vcms5\controllers\VcmsPageController@getDeletePage');
                 Route::post('/admin/page/savefragment', '\App\Http\Controllers\CatraPageController@postSavefragment');
                 Route::get('/admin/pages/pages.json', '\Tsawler\Vcms5\controllers\VcmsPageController@getAllPagesJson');
+
+                Route::get('/admin/data/provincial-data', '\App\Http\Controllers\DataController@getProvincialData');
+                Route::get('/admin/data/item', '\App\Http\Controllers\DataController@getItem');
+                Route::post('/admin/data/item', '\App\Http\Controllers\DataController@postItem');
+                Route::get('/admin/data/delete', '\App\Http\Controllers\DataController@deleteItem');
             });
 
             Route:: group(array('middleware' => 'auth.events'), function () // make sure admin

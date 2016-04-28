@@ -54,6 +54,19 @@
                         <li><a href="/admin/page/page?id=0">Add Page</a></li>
                     </ul>
                 </li>
+
+                @if (Request::segment(2) == 'data')
+                    <li class='active'>
+                @else
+                    <li>
+                @endif
+                <a href="#"><i class="fa fa-map-marker"></i> <span class="nav-label">Data</span><span
+                            class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li><a href="/admin/data/provincial-data">Provincial Data</a></li>
+                    <li><a href="/admin/data/item?id=0">Add Entry</a></li>
+                </ul>
+            </li>
             @endif
 
             @if (Auth::user()->hasRole('events'))
