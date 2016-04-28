@@ -6,6 +6,10 @@
     <div class="col-md-2"></div>
     <div class=col-md-8">
     <h3 class="red">{!! Lang::get('contact.contact_catra') !!}</h3>
+
+        <p>{!! \Illuminate\Support\Facades\Lang::get('contact.contact_blurb') !!}</p>
+        <p>{!! Lang::get('contact.contact_info') !!}</p>
+        <hr>
     {!! Form::open(array(
         'url' => '/contact',
         'role' => 'form',
