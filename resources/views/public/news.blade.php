@@ -10,7 +10,7 @@
         .news-image {
             width: 100%;
             height: 300px;
-            background: url(/vendor/vcms5/news/{!! $news_image !!});
+            background: url('/vendor/vcms5/news/{!! $news_image !!}');
             /*background-position: center center;*/
             background-position: 100%;
             background-size: cover;
