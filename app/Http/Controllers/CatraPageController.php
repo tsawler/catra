@@ -77,7 +77,7 @@ class CatraPageController extends VcmsBaseController
         }
 
         // get news
-        $news = News::where('active', '=', 1)->orderBy('created_at')->limit(3)->get();
+        $news = News::where('active', '=', 1)->orderBy('news_date', 'desc')->limit(3)->get();
 
         return View::make('public.home')
             ->with('page_title', $page_title)
