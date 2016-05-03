@@ -10,6 +10,14 @@ Route::get('/flushcache', function(){
     }
 });
 
+Route::get('/forum', function(){
+    return \Illuminate\Support\Facades\Redirect::to('http://forums.catraonline.ca');
+});
+
+Route::get('/forums', function(){
+    return \Illuminate\Support\Facades\Redirect::to('http://forums.catraonline.ca');
+});
+
 Route::get('/test', function(){
    $page = \App\CatraPage::find(2);
     dd($page->pageDetails()->id);
