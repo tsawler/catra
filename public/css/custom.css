@@ -184,3 +184,7 @@ a.redlink:link, a.redlink:visited, a.redlink:active {
 .larger-text {
     font-size: 1.5em;
 }
+
+p {
+    color: black;
+}
