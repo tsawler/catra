@@ -15,7 +15,7 @@
         "laravel/framework": "5.1.*",
         "laravelcollective/html": "5.1.*",
         "intervention/image": "2.*",
-        "tsawler/laravel-filemanager": "0.5.*",
+        "tsawler/laravel-filemanager": "0.6.*",
         "jenssegers/date": "~3.0",
         "tsawler/vcms5": "1.0.*"
     },
