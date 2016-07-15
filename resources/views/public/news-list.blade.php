@@ -40,7 +40,7 @@
         @endforeach
     </div>
 
-
+    {!! $news->render() !!}
 
 
 @stop
