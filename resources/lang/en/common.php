@@ -27,7 +27,7 @@ return [
     'energy_recovery'      => 'Energy Recovery',
     'tire_derived_fuel'    => '(Tire derived fuel)',
     'diversion_rate'       => 'Diversion Rate',
-    'formula'              => '(TDB + TDF/Collected)',
+    'formula'              => '(TDP + TDF/Collected)',
     'five_year_avg'        => '5 yr average',
     'tonnes'               => 'Tonnes (1 tonne = 2,204 lbs)',
     'logo'                 => 'logo-en.png',
