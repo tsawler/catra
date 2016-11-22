@@ -28,7 +28,7 @@ return [
     'tire_derived_fuel'    => '(combustible dérivé des pneus)',
     'diversion_rate'       => 'Taux de réacheminement',
     'formula'              => '(PDP + CDP/recueillies)',
-    'five_year_avg'        => 'Moyenne sur 5 ans',
+    'five_year_avg'        => 'Moyenne sur 6 ans',
     'tonnes'               => 'Tonnes (1 tonne = 2 204 lb)',
     'logo'                 => 'logo-fr.png',
     'slide-1'              => 'slide-1-fr.jpg',
