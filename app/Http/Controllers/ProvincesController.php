@@ -23,7 +23,7 @@ class ProvincesController extends Controller
         if (Input::has('year'))
             $year = Input::get('year');
         else
-            $year = 2014;
+            $year = 2015;
 
         $result = Province::where('province', '=', $province)->where('year', '=', $year)->first();
         $img = Image::where('province', '=', $province)->first();
