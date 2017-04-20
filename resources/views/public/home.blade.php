@@ -151,7 +151,7 @@
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-10">
-            <h1 class="red">News</h1>
+            <h1 class="red">{!! Lang::get('common.news') !!}</h1>
             <div class="row">
             @foreach($news as $item)
                     @if((Session::has('lang')) && (Session::get('lang') == 'fr'))
