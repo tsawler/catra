@@ -17,7 +17,7 @@ return [
     'history'              => 'Historique',
     'goals'                => 'Objectifs',
     'members'              => 'Membres',
-    'epr'                  => 'REP (Responsabilité des Producteurs)',
+    'epr'                  => 'REP',
     'research'             => 'Recherche',
     'publications'         => 'Publications',
     'data'                 => 'Données',
