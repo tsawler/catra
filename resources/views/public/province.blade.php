@@ -4,7 +4,7 @@
             <th>{!! Lang::get('provinces.' . $province->province) !!} {!! $province->year !!}</th>
             <th>
                 <select id="yearchange" class="form-control" style="max-width: 200px;">
-                    <option <?php if ($year == 2016) { echo "selected "; } ?> value=2015>2016</option>
+                    <option <?php if ($year == 2016) { echo "selected "; } ?> value=2016>2016</option>
                     <option <?php if ($year == 2015) { echo "selected "; } ?> value=2015>2015</option>
                     <option <?php if ($year == 2014) { echo "selected "; } ?> value=2014>2014</option>
                     <option <?php if ($year == 2013) { echo "selected "; } ?> value=2013>2013</option>
